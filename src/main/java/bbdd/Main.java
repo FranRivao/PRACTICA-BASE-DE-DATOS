@@ -28,8 +28,10 @@ public class Main {
         nuevoPlaneta("HD 209458 b (Osiris)", 1.4e27, 100000, "Beta Pictoris");
         nuevoPlaneta("LHS 1140 b", 8.3e24, 8800, "Copernico");
         // 2. Muestra por pantalla la lista de pasajeros de la cabina A-60-S
+        System.out.println("LISTA DE PASAJEROS CABINA:");
         listaPasajerosCabina("A" , 60, "S");
         // 3. Muestra por pantalla una lista de sistemas, planetas y número de pasajeros con origen en ellos
+        System.out.println("LISTA DE ORIGENES:");
         listaOrigenes();
         conn.close();
     }
@@ -58,10 +60,10 @@ public class Main {
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                System.out.println("-------------");
                 System.out.println("Pasajero:");
                 System.out.println("Nombre: " + rs.getString("nombre"));
                 System.out.println("Edad: " + rs.getString("edad"));
+                System.out.println("-------------");
             }
         } catch (SQLException ex){
             System.out.println("Error: " + ex.getMessage());
@@ -79,10 +81,10 @@ public class Main {
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                System.out.println("-------------");
                 System.out.println("Sistema: " + rs.getString("sistema"));
                 System.out.println("Planeta: " + rs.getString("nombre"));
                 System.out.println("Pasajeros natales: " + rs.getString("cantidad"));
+                System.out.println("-------------");
             }
         } catch (SQLException ex){
             System.out.println("Error: " + ex.getMessage());
